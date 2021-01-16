@@ -8,8 +8,8 @@ extern HTTPClient* http;
 typedef enum {
 BUTTON_LED_BAR_RIGHT = 17,
 BUTTON_LED_BAR_BACK = 23,
-BUTTON_CEILING_LED_1 = 34,
-BUTTON_HEATER_START = 35,
+BUTTON_CEILING_LED_1 = 12,
+BUTTON_HEATER_START = 13,
 } button_t;
 
 typedef enum {

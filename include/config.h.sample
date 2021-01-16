@@ -5,6 +5,6 @@
 #define WIFI_PASSWD "yourNetworkPassword"
 
 #define SHELLY_URL "http://192.168.178.%d/relay/0?turn=toggle"
-#define SHELLY_URL_BUFFER 1+strlen(SHELLY_URL)
+#define SHELLY_URL_BUFFER 2+strlen(SHELLY_URL)
 
 #endif // __CONFIG_H_
