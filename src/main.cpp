@@ -3,7 +3,9 @@
 #include <WiFi.h>
 #include <HTTPClient.h>
 #include <shelly.h>
-#include "config.h"
+
+
+#include "debug.h"
 
 volatile unsigned long alteZeit=0, entprellZeit=300;
 
@@ -67,6 +69,7 @@ void setup() {
   digitalWrite((int)BUTTON_HEATER_START, HIGH);  //eigentlich nicht notwendig - aber funktioniert deutlich besser
   Serial.begin(9600);
 
+  #ifndef DEBUG_NO_WIFI
   WiFi.begin(WIFI_SSID, WIFI_PASSWD);
  
   while (WiFi.status() != WL_CONNECTED) {
@@ -74,8 +77,23 @@ void setup() {
     Serial.println("Connecting to WiFi..");
   }
   Serial.println("Connected to the WiFi network");
+  trace("connected to wifi: %s", WIFI_SSID);
+  trace("ip address: %s", WiFi.localIP().toString().c_str());
+
+  #ifdef DEBUG
+  Serial.println("\n");
+  WiFi.printDiag(Serial);
+  Serial.println("\n");
+  #endif
+
+  #else // DEBUG_NO_WIFI
+  Serial.println("skiping wifi configuration");
+  #endif //DEBUG_NO_WIFI
+  #ifndef DEBUG_NO_GET
+  http = (HTTPClient*)calloc(1, sizeof(HTTPClient));
   http = new HTTPClient();
   http->setConnectTimeout(500);
+  #endif // DEBUG_NO_GET
   Serial.println("Setup done");
 
   attachAllInterupts();
