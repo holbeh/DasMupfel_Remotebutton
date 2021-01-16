@@ -29,8 +29,9 @@ void setup() {
     Serial.println("Connecting to WiFi..");
   }
   Serial.println("Connected to the WiFi network");
-  
+  http = HTTPClient();
   http->setConnectTimeout(500);
+  Serial.println("Setup done");
 }
  
 void loop() {
