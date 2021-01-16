@@ -5,7 +5,8 @@
 #include <shelly.h>
 #include "debug.h"
 
-volatile unsigned long alteZeit=0, entprellZeit=300;
+volatile unsigned long alteZeit=0;
+unsigned long entprellZeit=500;
 
 void deprell(button_t button){
     if((millis() - alteZeit) > entprellZeit) {

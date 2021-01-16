@@ -6,7 +6,7 @@
 #ifdef DEBUG
 #define trace(fmt...) Serial.printf(fmt); Serial.println()
 #else
-#define trace(fmt)
+#define trace(fmt...)
 #endif // DEBUG
 
 #ifdef DEBUG_NO_WIFI

@@ -57,7 +57,7 @@ void setup() {
  
 void loop() {
 
-  Serial.println(button_find_shelly(BUTTON_LED_BAR_RIGHT));
+  //Serial.println(button_find_shelly(BUTTON_LED_BAR_RIGHT));
   //Serial.println((int)BUTTON_LED_BAR_RIGHT);
 
   /*http->begin("http://192.168.178.138/relay/0?turn=toggle");
@@ -68,7 +68,5 @@ void loop() {
   else Serial.println("Relais Umgeschaltet");
   http->end();*/
   //toggle_shelly(SHELLY_U_HEATING_1);
-  delay (2000);
-
-  delay (8000);
+  
 }
